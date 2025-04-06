@@ -31,3 +31,12 @@ build/
 
 ### VS Code ###
 .vscode/
+
+##Banco de dados
+src/main/resources/application.properties
+application.properties
+
+##outros
+target
+/target/
+HELP.md
