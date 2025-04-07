@@ -12,7 +12,8 @@ public class UsuarioService {
         this.usuarioRepository = usuarioRepository;
     }
 
-    public void salvar(Usuario usuario){
+    public Usuario salvar(Usuario usuario){
         usuarioRepository.save(usuario);
+        return usuario;
     }
 }

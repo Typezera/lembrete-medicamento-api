@@ -13,9 +13,24 @@ import lombok.NoArgsConstructor;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
-    String nome;
+    private Long id;
+
+    private String nome;
+
     @Column(unique = true)
-    String email;
-    String senha;
+    private String email;
+
+    private String senha;
+
+    public String getNome() {
+        return this.nome;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public String getSenha() {
+        return this.senha;
+    }
 }
