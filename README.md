@@ -34,6 +34,11 @@ Projeto voltado para aprendizado, portfólio e aplicação prática dos conceito
 
 ## 🚀 Como rodar o projeto
 
+### Swagger UI
+
+> Assim que roda o projeto, acesse:
+[http://localhost:8080/swagger-ui/index.html]
+
 > Instruções serão adicionadas assim que o projeto estiver completo
 
 
