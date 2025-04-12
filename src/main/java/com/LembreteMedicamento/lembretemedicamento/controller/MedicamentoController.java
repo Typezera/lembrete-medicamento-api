@@ -1,12 +1,12 @@
 package com.LembreteMedicamento.lembretemedicamento.controller;
 
 import com.LembreteMedicamento.lembretemedicamento.dto.MedicamentoRequest;
+import com.LembreteMedicamento.lembretemedicamento.model.Medicamento;
 import com.LembreteMedicamento.lembretemedicamento.service.MedicamentoService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/medicamento")
@@ -25,6 +25,11 @@ public class MedicamentoController {
         } catch (Exception e ){
             return ResponseEntity.badRequest().body("Erro ao salvar Medicamento..." + e.getMessage());
         }
+    }
+
+    @GetMapping
+    public ResponseEntity<List<Medicamento>> listarMedicamento(){
+        return ResponseEntity.ok(medicamentoService.listarTodos());
     }
 
 }

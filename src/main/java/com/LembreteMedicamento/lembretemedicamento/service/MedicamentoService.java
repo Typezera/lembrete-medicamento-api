@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.util.List;
 
 @Service
 public class MedicamentoService {
@@ -40,5 +41,9 @@ public class MedicamentoService {
                 throw new RuntimeException("Formato de hora inválido!");
             }
         }
+    }
+
+    public List<Medicamento> listarTodos() {
+        return medicamentoRepository.findAll();
     }
 }
