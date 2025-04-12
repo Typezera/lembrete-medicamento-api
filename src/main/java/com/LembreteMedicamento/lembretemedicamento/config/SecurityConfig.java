@@ -16,7 +16,12 @@ public class SecurityConfig {
                 .formLogin().disable()
                 .httpBasic().disable()
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/auth/signup","/auth/signin").permitAll()
+                        .requestMatchers("/auth/signup",
+                                "/auth/signin",
+                                "/v3/api-docs/**",
+                                "/swagger-ui/**",
+                                "/swagger-ui.html"
+                        ).permitAll()
                         .anyRequest().authenticated()
 
                 );
