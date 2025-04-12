@@ -30,18 +30,11 @@ public class AuthController {
 
     @PostMapping("/signin")
     public ResponseEntity<?> logar(@RequestBody LoginRequest login){
-        Optional<Usuario> usuarioOpt = usuarioService.findForEmail(login.getEmail());
-
-        if(usuarioOpt.isEmpty()){
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuário não encontrado");
+        try {
+            Usuario usuario = usuarioService.verifyUser(login);
+            return ResponseEntity.ok(usuario);
+        } catch (RuntimeException e ){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
         }
-
-        Usuario usuario = usuarioOpt.get();
-
-        if(!usuario.getSenha().equals(login.getSenha())){
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Senha incorreta!");
-        }
-
-        return ResponseEntity.ok(usuario);
     }
 }
