@@ -35,17 +35,4 @@ public class MedicamentoRequest {
         this.nome = nome;
     }
 
-
-    public LocalDateTime conversorHorario(String horario){
-        try{
-            return LocalDateTime.parse(horario);
-        }catch (Exception e ){
-            if(horario.toLowerCase().contains("horas")){
-                int hora = Integer.parseInt(horario.replaceAll("\\D", ""));
-                return LocalDateTime.of(LocalDate.now(), LocalTime.of(hora, 0));
-            } else {
-                throw new RuntimeException("Formato de hora inválido!");
-            }
-        }
-    }
 }
