@@ -1,6 +1,7 @@
 package com.LembreteMedicamento.lembretemedicamento.controller;
 
 import com.LembreteMedicamento.lembretemedicamento.dto.LoginRequest;
+import com.LembreteMedicamento.lembretemedicamento.dto.LoginResponse;
 import com.LembreteMedicamento.lembretemedicamento.model.Usuario;
 import com.LembreteMedicamento.lembretemedicamento.service.UsuarioService;
 import org.springframework.http.HttpStatus;
@@ -31,7 +32,7 @@ public class AuthController {
     @PostMapping("/signin")
     public ResponseEntity<?> logar(@RequestBody LoginRequest login){
         try {
-            Usuario usuario = usuarioService.verifyUser(login);
+            LoginResponse usuario = usuarioService.verifyUser(login);
             return ResponseEntity.ok(usuario);
         } catch (RuntimeException e ){
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(e.getMessage());
